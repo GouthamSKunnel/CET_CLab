@@ -39,7 +39,7 @@ printf("%d \n", arr[i]);
 
 
 void deletion()
-{
+{ 
 int ele,flag=0;
 printf(" Enter the element to be deleted ");
 scanf("%d",&ele);
