@@ -15,9 +15,10 @@ void delete_from_end();
 int count = 0;
 
 int main () {
-  int i, data;
+  int ch, data;
+char choice;
 
-  for (;;) {
+  do {
     printf("1. Insert an element at the beginning of linked list.\n");
     printf("2. Insert an element at the end of linked list.\n");
     printf("3. Traverse linked list.\n");
@@ -25,32 +26,36 @@ int main () {
     printf("5. Delete an element from end.\n");
     printf("6. Exit\n");
 
-    scanf("%d", &i);
-
-    if (i == 1) {
+    scanf("%d", &ch);
+    switch(ch)
+    {
+    case 1:
       printf("Enter value of element\n");
       scanf("%d", &data);
       insert_at_begin(data);
-    }
-    else if (i == 2) {
+    break;
+    case 2:
       printf("Enter value of element\n");
       scanf("%d", &data);
       insert_at_end(data);
-    }
-    else if (i == 3)
+    break;
+    case 3:
       traverse();
-    else if (i == 4)
+    break;
+    case 4:
       delete_from_begin();
-    else if (i == 5)
+    break;
+    case 5:
       delete_from_end();
-    else if (i == 6)
-      break;
-    else
+    break;
+    default :
       printf("Please enter valid input.\n");
-  }
-
-  return 0;
+    }
+printf("Do you want to continue(y/n) \n");
+scanf("%s",&choice);
+}while(choice=='Y'||choice=='y');
 }
+
 
 void insert_at_begin(int x) {
   struct node *t;
