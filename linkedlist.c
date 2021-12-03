@@ -8,23 +8,27 @@ struct node {
 
 struct node *start = NULL;
 void insert_at_begin(int);
+void insert_at_loc(int,int);
 void insert_at_end(int);
 void traverse();
 void delete_from_begin();
+void delete_from_loc(int);
 void delete_from_end();
 int count = 0;
 
 int main () {
-  int ch, data;
-char choice;
+  int ch, data,loc;
+  char choice;
 
   do {
     printf("1. Insert an element at the beginning of linked list.\n");
-    printf("2. Insert an element at the end of linked list.\n");
-    printf("3. Traverse linked list.\n");
-    printf("4. Delete an element from beginning.\n");
-    printf("5. Delete an element from end.\n");
-    printf("6. Exit\n");
+    printf("2. Insert an element at a given position in the linked list.\n");
+    printf("3. Insert an element at the end of linked list.\n");
+    printf("4. Traverse linked list.\n");
+    printf("5. Delete an element from beginning.\n");
+    printf("6. Delete an element from a given location from the  linked list.\n");
+    printf("7. Delete an element from end.\n");
+    
 
     scanf("%d", &ch);
     switch(ch)
@@ -35,17 +39,30 @@ char choice;
       insert_at_begin(data);
     break;
     case 2:
+      printf("Enter the location \n");
+      scanf("%d",&loc);
+      printf("enter the value \n");
+      scanf("%d",&data);
+      insert_at_loc(loc,data);
+    
+    break;
+    case 3:
       printf("Enter value of element\n");
       scanf("%d", &data);
       insert_at_end(data);
     break;
-    case 3:
+    case 4:
       traverse();
     break;
-    case 4:
+    case 5:
       delete_from_begin();
     break;
-    case 5:
+    case 6:
+    printf("Enter the location \n");
+      scanf("%d",&loc);
+      delete_from_loc(loc);
+    break;
+    case 7:
       delete_from_end();
     break;
     default :
@@ -72,6 +89,24 @@ void insert_at_begin(int x) {
 
   t->next = start;
   start = t;
+}
+
+void insert_at_loc(int pos,int x)
+{
+ struct node *t,*temp=start;
+ int i=1;
+
+  t = (struct node*)malloc(sizeof(struct node));
+  t->data = x;
+  count++;
+while(i<pos-1)
+{
+temp=temp->next;
+i++;
+}
+t->next=temp->next;
+temp->next=t;
+
 }
 
 void insert_at_end(int x) {
@@ -131,6 +166,21 @@ void delete_from_begin() {
   count--;
 
   printf("%d deleted from the beginning successfully.\n", n);
+}
+
+void delete_from_loc(int pos){
+  struct node *t,*temp;
+  int i=1,n;
+
+ while(i<pos-1){
+   t=t->next;
+   i++;
+ }
+  temp=t->next;
+  n = t->data;
+  t->next = temp->next;
+  free(temp);
+
 }
 
 void delete_from_end() {
