@@ -61,7 +61,6 @@ struct node *Top;
 
     void display()  
     {  
-        int i;  
         struct node *ptr;  
         ptr=Top;  
         if(ptr == NULL)  
