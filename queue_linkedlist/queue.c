@@ -76,7 +76,7 @@ void display()
     } 
 }
 
-int main()
+void main()
 {
    int ch,choice;     
     printf("\n*********Queue operations using linked list*********\n");    
