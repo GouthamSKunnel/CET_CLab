@@ -16,7 +16,7 @@ void delete_from_loc(int);
 void delete_from_end();
 int count = 0;
 
-int main () {
+void main () {
   int ch, data,loc;
   char choice;
 
