@@ -17,7 +17,7 @@ void display();
 void main ()  
 {  
 int choice =0;  
-    while(choice != 9)  
+    while(choice != 8)  
     {  
         
         printf("\n1.Insert in begining\n2.Insert at last\n3.Insert at any random location\n4.Delete from Beginning\n5.Delete from last\n6.Delete the node from any position\n7.display\n8.Exit\n");  
